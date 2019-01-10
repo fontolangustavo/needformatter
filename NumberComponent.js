@@ -20,12 +20,14 @@ export const numberToText = (value) => {
         return value;
     }
 
-    let div = (Math.pow(1000, casa))
+    let div = (Math.pow(1000, casa));
+    let result = (value / div).toFixed(1).toString();
+    let index = result.length;
 
     if (casa < 2) {
         return (value / div).toFixed(0) + ' ' + numberLong[casa - 1];
     } else {
-        if (value[1] == '0') {
+        if (result[index - 1] == '0') {
             return (value / div).toFixed(0) + ' ' + numberLong[casa - 1];
         } else {
             return (value / div).toFixed(1) + ' ' + numberLong[casa - 1];
